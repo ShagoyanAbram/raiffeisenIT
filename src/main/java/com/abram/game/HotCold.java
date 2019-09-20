@@ -9,19 +9,29 @@ public class HotCold {
     }
 
     public static void resultGame(int random) {
-        while (true) {
-            Scanner sc = new Scanner(System.in);
-            int player = sc.nextInt();
+        int a = 0;
+        int b;
 
+        Scanner sc = new Scanner(System.in);
+        int player = sc.nextInt();
+        if (player == random) {
+            System.out.println("Успех");
+            return;
+        }
+        a++;
+        b = player;
+
+        while (a >= 1) {
+            player = sc.nextInt();
             if (player == random) {
                 System.out.println("Успех");
                 break;
-            } else if (player < random) {
+            } else if (Math.abs(random - b) > Math.abs(random - player)) {
                 System.out.println("Горячо");
-            } else
+            } else {
                 System.out.println("Холодно");
+            }
+            b = player;
         }
-
     }
-
 }

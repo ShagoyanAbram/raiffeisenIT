@@ -2,12 +2,11 @@ package com.abram.moon;
 
 public class CardValidator {
 
-    public static boolean algorithmMoon(String kartNumber) {
-        StringBuilder stringBuilder = new StringBuilder();
+    public static boolean algorithmMoon(String cardNumber) {
         int count = 0;
-        if (kartNumber.length() % 2 == 0) {
-            for (int i = 0; i < kartNumber.length(); i += 2) {
-                int indexToNumber = Integer.parseInt(String.valueOf((kartNumber.charAt(i))));
+        if (cardNumber.length() % 2 == 0) {
+            for (int i = 0; i < cardNumber.length(); i += 2) {
+                int indexToNumber = Integer.parseInt(String.valueOf((cardNumber.charAt(i))));
                 if (2 * indexToNumber > 9) {
                     count += 2 * indexToNumber - 9;
                 } else {
@@ -16,9 +15,9 @@ public class CardValidator {
             }
         }
 
-        if (kartNumber.length() % 2 == 1) {
-            for (int i = 1; i < kartNumber.length(); i += 2) {
-                int indexToNumber = Integer.parseInt(String.valueOf((kartNumber.charAt(i))));
+        if (cardNumber.length() % 2 == 1) {
+            for (int i = 1; i < cardNumber.length(); i += 2) {
+                int indexToNumber = Integer.parseInt(String.valueOf((cardNumber.charAt(i))));
                 if (2 * indexToNumber > 9) {
                     count += 2 * indexToNumber - 9;
                 } else {
@@ -26,7 +25,6 @@ public class CardValidator {
                 }
             }
         }
-
         return count % 10 == 0;
     }
 
