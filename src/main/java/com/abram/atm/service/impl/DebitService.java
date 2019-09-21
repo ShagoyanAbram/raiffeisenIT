@@ -1,13 +1,14 @@
 package com.abram.atm.service.impl;
 
 import com.abram.atm.Accounts;
+import com.abram.atm.User;
 import com.abram.atm.service.Service;
 
 public class DebitService implements Service {
     private double stopOperation = -20000;
 
     @Override
-    public void depositMoneyIntoAccount(Accounts account, double amount) {
+    public void depositMoneyIntoAccount(User user, Accounts account, double amount) {
         if (account.getBalance() >= stopOperation) {
             account.setBalance(account.getBalance() + amount);
         } else {

@@ -1,19 +1,20 @@
 package com.abram.atm.service.impl;
 
-import com.abram.atm.Accounts;
-import com.abram.atm.CurrentAccount;
-import com.abram.atm.DebitAccount;
+import com.abram.atm.*;
 import com.abram.atm.service.Service;
 
 public class CurrentService implements Service {
-    private final double fixPrice = 1000000;
-    private final double bonus = 2000;
+    private final double FIX_PRICE = 1000000;
+    private final double BONUS = 2000;
 
     @Override
-    public void depositMoneyIntoAccount(Accounts accounts, double amount) {
-        if (amount > fixPrice) {
-            DebitAccount debitAccount = new DebitAccount();
-            debitAccount.setBalance(debitAccount.getBalance() + bonus);
+    public void depositMoneyIntoAccount(User user, Accounts accounts, double amount) {
+        if (amount > FIX_PRICE) {
+            for (Accounts account : user.getAccounts()) {
+                if (account.getAccountType().equals(AccountType.DEBIT)) {
+                    account.setBalance(account.getBalance() + BONUS);
+                }
+            }
         }
         accounts.setBalance(accounts.getBalance() + amount);
     }

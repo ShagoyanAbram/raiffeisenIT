@@ -1,9 +1,8 @@
 package com.abram.atm;
 
-import com.abram.atm.service.Service;
 import com.abram.atm.service.impl.CreditService;
 
-public class CreditAccount extends Accounts implements Service {
+public class CreditAccount extends Accounts {
     public CreditAccount() {
     }
 

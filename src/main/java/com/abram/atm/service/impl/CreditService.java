@@ -1,11 +1,12 @@
 package com.abram.atm.service.impl;
 
 import com.abram.atm.Accounts;
+import com.abram.atm.User;
 import com.abram.atm.service.Service;
 
 public class CreditService implements Service {
     @Override
-    public void depositMoneyIntoAccount(Accounts accounts, double amount) {
+    public void depositMoneyIntoAccount(User user, Accounts accounts, double amount) {
         accounts.setBalance(accounts.getBalance() + amount);
     }
 

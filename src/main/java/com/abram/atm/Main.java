@@ -12,11 +12,11 @@ public class Main {
         accounts.add(new CurrentAccount(3456, 888));
         user.setAccounts(accounts);
 
-        int acc = 1234;
+        int acc = 3456;
         List<Accounts> accList = user.getAccounts();
         for (Accounts a : accList) {
             if (a.accountNumber == acc) {
-                a.depositMoneyIntoAccount(a, 100);
+                a.depositMoneyIntoAccount(user, 10000000);
             }
         }
         Accounts accounts1 = accounts.stream().filter(a -> a.getAccountType().equals(AccountType.DEBIT)).findFirst().get();

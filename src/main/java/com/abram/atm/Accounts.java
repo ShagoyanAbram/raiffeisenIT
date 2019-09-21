@@ -44,8 +44,8 @@ public class Accounts {
         this.accountType = accountType;
     }
 
-    public void depositMoneyIntoAccount(Accounts accounts, double amount) {
-        service.depositMoneyIntoAccount(accounts, amount);
+    public void depositMoneyIntoAccount(User user, double amount) {
+        service.depositMoneyIntoAccount(user, this, amount);
     }
 
     public void withdrawMoney(Accounts account, double amount) {
